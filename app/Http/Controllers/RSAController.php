@@ -7,7 +7,7 @@ class RSAController extends Controller
 {
     public function encrypt(Request $request)
     {
-    	$path = public_path('storage/py/encryption.py');
+    	$path = public_path('py/encryption.py');
 		$result = shell_exec('python '.$path.' '.escapeshellarg($request->text));
         $json = json_decode($result);
 
@@ -22,7 +22,7 @@ class RSAController extends Controller
 
     public function decrypt(Request $request)
     {
-    	$path = public_path('storage/py/decryption.py');
+    	$path = public_path('py/decryption.py');
         $result = shell_exec('python '.$path.' '.$request->text .' '.$request->d .' '.$request->n);
 		// Return response
         return response([
