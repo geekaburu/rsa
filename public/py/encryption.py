@@ -2,7 +2,7 @@
 import sys
 import json
 import random
-from math import gcd
+import math
 
 # Collect string passed into the program
 string = sys.argv[1:]
@@ -20,7 +20,7 @@ def getPrimes(n):
 
 # Get Prime numbers between 0 and n
 def getCoprimes(numbers, l):
-	return [number for number in numbers if gcd(number, l) == 1]
+	return [number for number in numbers if math.gcd(number, l) == 1]
 
 # Generate the public key
 def generateE():
